@@ -1,18 +1,22 @@
-
+from connect import conectar
 from suds.client import Client
+
+
 
 from datetime import date,timedelta
 #print (client) ## shows the details of this service
 wsdl="https://www3.bcb.gov.br/sgspub/JSP/sgsgeral/FachadaWSSGS.wsdl"
-data = date.today() - timedelta(days=1)
+data = date.today() - timedelta(days=5)
 data=(data.strftime("%d/%m/%Y") )
+cota=[]
 
+#moedas_ids = [1]
 moedas_ids = [1,10813,21619,21620,21621,21622,21623,21624,21625,21626,21627,21628,21629,21630,21631,21632,21633,21634,21635,21636]
 
 
 class Moedas():
-    
-    print("Fonte de dados Banco Central do Brasil")
+    t = conectar()
+    print("Fonte de dados Banco Central do Brasil " + data)
     def dispatch_dict(operator):
             return {
             1: lambda: "Dólar (venda)",
@@ -51,5 +55,8 @@ class Moedas():
     for id in moedas_ids:
     
         valor,moeda,dia = Retorna(id,data)
-        print("Moeda:"+dispatch_dict(moeda) ,"R$ "+valor,"Data:"+dia )
- 
+        
+        print("Moeda:"+dispatch_dict(moeda) ,"R$ "+valor,"Data:"+dia)
+        #print(str(moeda),dia,valor)
+        t = conectar()
+        t.inserir(id,data,valor)
