@@ -1,7 +1,5 @@
-# Cotação de Moedas Banco Central / Mercado BitCoin
+# Cotação de Moedas Banco Central
 
 Bibliotecas
-suds-py3==1.4.1.0
 
 
-Sistema em python para captura de cotações de 20 moedas no webservice do BACEN.

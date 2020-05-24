@@ -1,26 +1,34 @@
+import sys
+
+import suds
 from connect import conectar
 from suds.client import Client
-
-
-
 from datetime import date,timedelta
 #print (client) ## shows the details of this service
-wsdl="https://www3.bcb.gov.br/sgspub/JSP/sgsgeral/FachadaWSSGS.wsdl"
-data = date.today() - timedelta(days=5)
-data=(data.strftime("%d/%m/%Y") )
-cota=[]
 
-#moedas_ids = [1]
+msg1 = "br.gov.bcb.pec.sgs.comum.excecoes.SGSNegocioException: Value(s) not found"
+msg =""
+wsdl="https://www3.bcb.gov.br/sgspub/JSP/sgsgeral/FachadaWSSGS.wsdl"
+
+#print(wsdl.values)
+data = date.today() - timedelta(days=0)
+
+data=(data.strftime("%d/%m/%Y") )
+
+
+#moedas_ids = [1,10813]
 moedas_ids = [1,10813,21619,21620,21621,21622,21623,21624,21625,21626,21627,21628,21629,21630,21631,21632,21633,21634,21635,21636]
 
 
+
 class Moedas():
+
     t = conectar()
     print("Fonte de dados Banco Central do Brasil " + data)
     def dispatch_dict(operator):
             return {
-            1: lambda: "Dólar (venda)",
-            10813: lambda: "Dólar (Compra)",
+            1: lambda: "Dolar (venda)",
+            10813: lambda: "Dolar (Compra)",
             21619: lambda: "Euro (venda)",
             21620: lambda:"Euro (compra)",
             21621: lambda: "Iene (venda)",
@@ -35,28 +43,38 @@ class Moedas():
             21630: lambda: "Coroa Norueguesa (compra)",
             21631: lambda: "Coroa Sueca (venda)",
             21632: lambda: "Coroa Sueca (compra)",
-            21633: lambda: "Dólar Australiano (venda)",
-            21634: lambda: "Dólar Australiano (compra)",
-            21635: lambda: "Dólar Canadense (venda)",
-            21636: lambda: "Dólar Canadense (compra)",
+            21633: lambda: "Dolar Australiano (venda)",
+            21634: lambda: "Dolar Australiano (compra)",
+            21635: lambda: "Dolar Canadense (venda)",
+            21636: lambda: "Dolar Canadense (compra)",
 
                         }.get(operator, lambda: None)()
 
 
     def Retorna(moeda,data):
-  
+            
+            
         client = Client(wsdl)
         result = client.service.getValor(moeda,data)
-                    
- 
+            
         return result,moeda,data   
-
-   
+        
+        
     for id in moedas_ids:
     
-        valor,moeda,dia = Retorna(id,data)
+        try:    
+                valor,moeda,dia = Retorna(id,data)
         
-        print("Moeda:"+dispatch_dict(moeda) ,"R$ "+valor,"Data:"+dia)
-        #print(str(moeda),dia,valor)
-        t = conectar()
-        t.inserir(id,data,valor)
+                print("Moeda:"+dispatch_dict(moeda) ,"R$ "+valor,"Data:"+dia)
+                t = conectar()
+                t.inserir(id,data,valor)
+        except suds.WebFault as detail:
+             msg =(detail.fault.faultstring)
+             print(msg)               
+        if msg == msg1:
+             print ("Sem dados para cotação da moeda " + dispatch_dict(id) + " no dia " +data)
+
+        if msg == "":
+          print("")           
+
+
