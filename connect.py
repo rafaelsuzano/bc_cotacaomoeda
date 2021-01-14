@@ -1,4 +1,8 @@
-import pymysql
+#import pymysql
+import mysql.connector
+
+
+
 
 import json
 class conectar(object):
@@ -12,7 +16,7 @@ class conectar(object):
                 password = "Suz@no3001"
                 port =3306
                 try:
-                        self.db = pymysql.connect(host=host,
+                        self.db = mysql.connect(host=host,
                                                                 database=database,
                                                                 port=port,
                                                                 user=user,
