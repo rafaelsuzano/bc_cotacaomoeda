@@ -24,12 +24,9 @@ class conectar(object):
                                                                 autocommit=True)
                       
                            
-              except mysql.connector.Error as err:
-                  print(err)
-                   exit()
-                else:
-                        return 
-
+            except mysql.connector.Error as err:
+                print("Deu Ruim" {}".format(err))
+                exit()        
                
         def inserir(self,id,dt,vlr):
                 self.id = id
