@@ -1,5 +1,9 @@
 #import pymysql
 import mysql.connector
+
+
+
+
 import json
 class conectar(object):
         global db;
@@ -12,7 +16,7 @@ class conectar(object):
                 password = "Suz@no3001"
                 port =3306
                 try:
-                        self.db = mysql.connect(host=host,
+                        self.db = mysql.connector(host=host,
                                                                 database=database,
                                                                 port=port,
                                                                 user=user,
