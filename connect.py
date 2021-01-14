@@ -24,9 +24,9 @@ class conectar(object):
                                                                 autocommit=True)
                       
                            
-                except  mysql.Error as err:
-                        raise DatabaseError(err)    
-                        exit()
+              except mysql.connector.Error as err:
+                  print(err)
+                   exit()
                 else:
                         return 
 
