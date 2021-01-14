@@ -7,11 +7,11 @@ class conectar(object):
         
   
         def __init__(self):
-                host = "localhost"
+                host = "prd-cotacao.mysql.uhserver.com"
                 user = "root"
-                database = "cotacao"
-                password = "12345678"
-                port =3310
+                database = "rsc1985"
+                password = "Suz@no3001"
+                port =3306
                 try:
                         self.db = pymysql.connect(host=host,
                                                                 database=database,
