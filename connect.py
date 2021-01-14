@@ -24,7 +24,7 @@ class conectar(object):
                                                                 autocommit=True)
                         
                              
-                except  pymysql.Error as err:
+                except  mysql.Error as err:
                                 print(err)
                                 exit()
                 else:
