@@ -26,7 +26,7 @@ class conectar(object):
                            
                 except  mysql.Error as err:
                         raise DatabaseError(err)    
-                                exit()
+                        exit()
                 else:
                         return 
 
