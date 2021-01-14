@@ -1,9 +1,5 @@
 #import pymysql
 import mysql.connector
-
-
-
-
 import json
 class conectar(object):
         global db;
@@ -24,9 +20,9 @@ class conectar(object):
                                                                 autocommit=True)
                       
                            
-            except mysql.connector.Error as err:
-                print("Deu Ruim" {}".format(err))
-                exit()        
+                except mysql.connector.Error as err:
+                    print("Deu ruim !!{}".format(err))
+                    exit()        
                
         def inserir(self,id,dt,vlr):
                 self.id = id
@@ -50,4 +46,3 @@ class conectar(object):
                 resultado = cur.fetchall()
 
                 return resultado
-
