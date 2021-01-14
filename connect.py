@@ -23,7 +23,7 @@ class conectar(object):
                                                                 password=password,
                                                                 autocommit=True)
                         
-                             
+                except mysql.Error as e             
                 except  mysql.Error as err:
                                 print(err)
                                 exit()
