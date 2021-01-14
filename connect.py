@@ -22,10 +22,10 @@ class conectar(object):
                                                                 user=user,
                                                                 password=password,
                                                                 autocommit=True)
-                        
-                except mysql.Error as e             
+                      
+                           
                 except  mysql.Error as err:
-                                print(err)
+                        raise DatabaseError(err)    
                                 exit()
                 else:
                         return 
