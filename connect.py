@@ -20,7 +20,7 @@ class conectar(object):
                                                                 port=port,
                                                                 user=user,
                                                                 password=password,
-                                                                autocommit=True)
+                                                                autocommit=True,connect_timeout=1000)
                       
                            
                 except mysql.connector.Error as err:
