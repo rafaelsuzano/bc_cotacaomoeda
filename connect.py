@@ -1,6 +1,5 @@
-#import pymysql
+import pymysql
 
-import pymysql.cursors
 import json
 class conectar(object):
         global db;
