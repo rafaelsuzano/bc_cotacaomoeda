@@ -11,7 +11,7 @@ class conectar(object):
         def __init__(self):
                 host = "prd-cotacao.mysql.uhserver.com"
                 user = "root"
-                database = "rsc1985"
+                database = "prd-cotacao"
                 password = "Suz@no3001"
                 port =3306
                 try:
