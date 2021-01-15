@@ -68,7 +68,7 @@ class Moedas():
         
                 print("Moeda:"+dispatch_dict(moeda) ,"R$ "+valor,"Data:"+dia)
                 t = conectar()
-               # t.inserir(id,data,valor)
+                t.inserir(id,data,valor)
         except suds.WebFault as detail:
              msg =(detail.fault.faultstring)
              print(msg)               
