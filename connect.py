@@ -55,18 +55,11 @@ class conectar(object):
                 self.quantity =quantity
                 self.amount =amount 
                 self.avg_price = avg_price
-                
                 self.id_moeda = id_moeda
                 
                 data_c = "'" + data_c + "'"
                # closing = "'" + closing + "'"
-
-                cur = self.db.cursor()
-
-                  
+                cur = self.db.cursor()                  
                 sql = """insert into hist_cotacao_cripto(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""%(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
-                
-
-                print(sql)
-                
-                #cur.execute(sql)
+                #print(sql)
+                cur.execute(sql)
