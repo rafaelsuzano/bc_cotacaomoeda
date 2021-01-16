@@ -86,7 +86,7 @@ class GetDataBitCoins():
                 
                 t = conectar()     
                 t.inserirCripto(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda) 
-                #print(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
+                print(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
                         
                 return url
             except KeyError as error:
