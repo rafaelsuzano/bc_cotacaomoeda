@@ -10,7 +10,6 @@ import sys
 import requests
 from datetime import date
 from connect import conectar
-import pymysql
 import datetime
 from datetime import date,timedelta
 
