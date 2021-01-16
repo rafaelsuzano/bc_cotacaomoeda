@@ -69,4 +69,4 @@ class conectar(object):
 
                 print(sql)
                 
-                cur.execute(sql)
+                #cur.execute(sql)
