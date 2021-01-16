@@ -1,4 +1,6 @@
-# Cotação de Moedas Banco Central
+# Cotação de Moedas
+  Banco Central
+  Mercado Bitcoins
 
 Bibliotecas
 
