@@ -65,8 +65,8 @@ class conectar(object):
 
                   
                 sql = """insert into hist_cotacao_cripto(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""%(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
+                
 
-
-                #print(sql)
-                #print(val)
+                print(sql)
+                
                 cur.execute(sql)
