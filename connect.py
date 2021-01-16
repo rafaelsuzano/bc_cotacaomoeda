@@ -9,10 +9,10 @@ class conectar(object):
         
   
         def __init__(self):
-                host = "prd-cotacao.mysql.uhserver.com"
+                host = 142.47.102.214
                 user = "root"
                 database = "prd-cotacao"
-                password = "Suz@no3001"
+                password = "Suz@no1985"
                 port =3306
                 try:
                         self.db = mysql.connector.connect(host=host,
