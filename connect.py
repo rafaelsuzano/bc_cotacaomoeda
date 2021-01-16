@@ -38,7 +38,7 @@ class conectar(object):
                 
                 sql = ("insert into hist_cotacao (id_moeda,dt_cotacao,valor) values  (%s,%s,%s)")
                 val = (id,dt,vlr)                   
-                cur.execute(sql,val)
+                cur.executemany(sql,val)
         
    
                 
