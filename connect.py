@@ -7,7 +7,8 @@ import mysql.connector
 import json
 class conectar(object):
         global db;
-        
+
+                
   
         def __init__(self):
                 host = "142.47.102.214"
@@ -29,19 +30,20 @@ class conectar(object):
                     exit()        
                
         def inserir(self,id,dt,vlr):
+
                 self.id = id
                 self.data = dt
                 self.tipo = vlr                
                 
+                dt = "'"+ dt +"'"
                
                 cur = self.db.cursor()
                 
-                sql = ("insert into hist_cotacao (id_moeda,dt_cotacao,valor) values  (%s,%s,%s)")
-                val = (int(id),dt,vlr)                   
-                cur.execute(sql,val)
-        
-   
-                
+                sql = """insert into hist_cotacao_bc (id_moeda,dt_cotacao,valor) values  (%s,%s,%s)""" % (id,dt,vlr)
+                print (sql)
+                        
+                cur.execute(sql)
+               
         def retorna(self):
                 
                 cur = self.db.cursor()
@@ -50,3 +52,4 @@ class conectar(object):
                 resultado = cur.fetchall()
 
                 return resultado
+        
