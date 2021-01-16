@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 #import pymysql
 import mysql.connector
-
-
-
 import json
 class conectar(object):
         global db;
@@ -34,22 +31,42 @@ class conectar(object):
                 self.id = id
                 self.data = dt
                 self.tipo = vlr                
-                
                 dt = "'"+ dt +"'"
-               
                 cur = self.db.cursor()
-                
                 sql = """insert into hist_cotacao_bc (id_moeda,dt_cotacao,valor) values  (%s,%s,%s)""" % (id,dt,vlr)
-                print (sql)
-                        
                 cur.execute(sql)
                
         def retorna(self):
                 
                 cur = self.db.cursor()
                 cur.execute("SELECT * FROM moedas")
-
                 resultado = cur.fetchall()
-
                 return resultado
         
+        
+        def inserirCripto(self,	data_c,closing,lowest,opening, highest,volume, quantity,amount, avg_price,id_moeda):
+                
+                self.data_c = data_c
+                self.closing =closing
+                self.lowest = lowest	
+                self.opening = opening 
+                self.highest = highest
+                self.volume = volume 
+                self.quantity =quantity
+                self.amount =amount 
+                self.avg_price = avg_price
+                
+                self.id_moeda = id_moeda
+                
+                data_c = "'" + data_c + "'"
+               # closing = "'" + closing + "'"
+
+                cur = self.db.cursor()
+
+                  
+                sql = """insert into hist_cotacao_cripto(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""%(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
+
+
+                #print(sql)
+                #print(val)
+                cur.execute(sql)

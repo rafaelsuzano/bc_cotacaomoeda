@@ -12,7 +12,7 @@ msg =""
 wsdl="https://www3.bcb.gov.br/sgspub/JSP/sgsgeral/FachadaWSSGS.wsdl"
 
 #print(wsdl.values)
-data = date.today() - timedelta(days=1)
+data = date.today() - timedelta(days=0)
 
 data=(data.strftime("%d/%m/%Y") )
 

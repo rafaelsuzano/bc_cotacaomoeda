@@ -1,89 +1,100 @@
+# -*- coding: utf-8 -*-
 
-projetos
-MB_Cotacao_Moeda 
-connect.py
-import pymysql
-
-import pymysql.cursors
+import time
+import os
+from datetime import datetime,timedelta
 import json
-class conectar(object):
-        global db;
+import requests
+import string
+import sys
+import requests
+from datetime import date
+from connect import conectar
+import pymysql
+import datetime
+from datetime import date,timedelta
+
+
+class GetDataBitCoins():
         
-  
-        def __init__(self):
-                host = "localhost"
-                user = "root"
-                database = "cotacao"
-                password = "12345678"
-                port = None
-                #port =3310
-                try:
-                        self.db = pymysql.connect(host=host,
-                                                                database=database,
-                                                                port=port,
-                                                                user=user,
-                                                                password=password,
-                                                                autocommit=True)
+            
+        data = date.today() - timedelta(days=1)
+        data=(data.strftime("%d/%m/%Y") )
+
+        
+        '''    
+        ano =  data.year
+        mes =  data.month 
+        dia = data.day
+            '''
+        data = data.split("/")
+        dia= (data[0])
+        mes =(data[1])
+        ano =(data[2])
+            
+
+
+     
+        def CallBitCoins(Coin,ano,mes,dia):
+            if Coin == "BTC" :
+                id_moeda = 100
+                coins = "BTC"
+                
+            elif Coin =="ETH" :
+                 id_moeda = 200
+                 coins = "ETH"
+
+            elif Coin =="BCH":
+                id_moeda = 300
+                coins = "BCH"
+
+            
+            elif Coin =="XRP":
+                 id_moeda = 400
+                 coins = "XRP"
+
+                    
+            elif Coin =="USDC":
+                id_moeda = 700
+                coins = "USDC" 
+           
+            elif Coin == "LTC":
+                id_moeda = 800
+                coins = "LTC"
+               
+         
+                      
+            else:
+                
+                print("CriptoMoeda não cadastrada !!!")    
+                return 999999
+                sys.exit
+            try:    
+                url = 'https://www.mercadobitcoin.net/api/'+coins+'/day-summary/'+ ano+'/'+mes+'/'+dia +'/'
+                r = requests.get(url)
+                dados=(r.content)
+                data = (json.loads(dados))
+                data_c = data['date']
+                closing = str(data['closing'])
+                lowest = str(data['lowest'])
+                opening = str(data['opening'])
+                highest = str(data['highest'])
+                volume = str(data['volume'])
+                quantity = str(data['quantity'])
+                amount = str(data['amount'])
+                avg_price = str(data['avg_price'])
+
+                
+                t = conectar()     
+                t.inserirCripto(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda) 
+                print(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
                         
-                             
-                except  pymysql.Error as err:
-                                print(err)
-                                exit()
-                else:
-                        return 
-
-               
-        def inserir(self,id,dt,vlr):
-                self.id = id
-                self.data = dt
-                self.tipo = vlr                
-                
-               
-                cur = self.db.cursor()
-                
-                sql = ("insert into hist_cotacao (id_moeda,dt_cotacao,valor) values  (%s,%s,%s)")
-                val = (id,dt,vlr)                   
-                cur.execute(sql,val)
-        
-   
-
-        def inserirCripto(self,	data_c,closing,lowest,opening, highest,volume, quantity,amount, avg_price,id_moeda):
-                
-                self.data_c = data_c
-                self.closing =closing
-                self.lowest = lowest	
-                self.opening = opening 
-                self.highest = highest
-                self.volume = volume 
-                self.quantity =quantity
-                self.amount =amount 
-                self.avg_price = avg_price
-                
-                self.id_moeda = id_moeda
-                
-                data_c = "'" + data_c + "'"
-                cur = self.db.cursor()
-
-                  
-                sql = """insert into hist_cotacao_cripto(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""%
-                #print(sql)
-                #print(val)
-                cur.execute(sql,val)
-
-
-        def UltimaCotacaDtaBitcoin(self):
-                sql ="select  DATE_ADD((max(DATE_FORMAT(data_c,'%Y/%m/%d'))),interval 1 day) from  hist_cotacao_cripto_btc ;"
-                cur = self.db.cursor()
-                cur.execute(sql)  
-                resultado = cur.fetchall()
-                return resultado[0]
-
-
-        def retorna(self):
-             
-
-                cur = self.db.cursor()
-                cur.execute("SELECT * FROM moedas")
-                resultado = cur.fetchone()
-                return resultado
-
+                return url
+            except KeyError as error:
+                print("Moeda:"+coins)
+                print(data)
+                print(error)
+     
+        CallBitCoins("USDC",(ano),(mes),(dia))
+        CallBitCoins("BTC",(ano),(mes),(dia))
+        CallBitCoins("ETH",(ano),(mes),(dia))
