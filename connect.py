@@ -9,7 +9,7 @@ class conectar(object):
   
         def __init__(self):
                 host = "142.47.217.91"
-                user = "root"
+                user = "teste"
                 database = "prd_cotacao"
                 password = "12345678"
                 port =3385
