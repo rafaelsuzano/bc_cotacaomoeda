@@ -8,11 +8,11 @@ class conectar(object):
                 
   
         def __init__(self):
-                host = "142.47.217.91"
-                user = "prd_cotacao"
-                database = "prd_cotacao"
+                host = "142.47.108.127"
+                user = "root"
+                database = "currencyquote"
                 password = "12345678"
-                port =3385
+                port =3306
                 try:
                         self.db = mysql.connector.connect(host=host,
                                                                 database=database,
