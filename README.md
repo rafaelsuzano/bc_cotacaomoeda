@@ -2,6 +2,7 @@
   ## Banco Central
   ## Mercado Bitcoins
 
-Bibliotecas
+
+Esse aplicação inclui dados de cotação de moedas do Banco Central e Mercado de Bitcoins.
 
 
