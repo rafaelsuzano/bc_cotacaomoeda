@@ -60,6 +60,11 @@ class GetDataBitCoins():
             elif Coin == "LTC":
                 id_moeda = 800
                 coins = "LTC"
+                
+                
+            elif Coin == "CHZ":
+                id_moeda = 900
+                coins = "CHZ"
                
          
                       
@@ -97,3 +102,4 @@ class GetDataBitCoins():
         CallBitCoins("USDC",(ano),(mes),(dia))
         CallBitCoins("BTC",(ano),(mes),(dia))
         CallBitCoins("ETH",(ano),(mes),(dia))
+        CallBitCoins("CHZ",(ano),(mes),(dia))
