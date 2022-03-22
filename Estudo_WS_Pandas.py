@@ -1,5 +1,3 @@
-#http://www.bosontreinamentos.com.br/programacao-em-python/como-criar-graficos-com-matplotlib-em-python/#:~:text=Gr%C3%A1ficos%20com%20matplotlib%20em%20Python%20O%20matplotlib%20%C3%A9,formatos%20e%20tamb%C3%A9m%20ambientes%20interativos%2C%20em%20in%C3%BAmeras%20plataformas.
-
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 import xml.etree.ElementTree as ET
@@ -46,26 +44,28 @@ def Filtro(m):
     
     d = x['Data'].tolist()
     v = x['Valor'].tolist()
- 
-    
-         #m = (x['Data'].to_string(index=False))
-    #v =(x['Valor'].to_string(index=False))
     
     
     return d,v,x
+
+def GeraGrafico(dados):
+    dx=(dados[0])
+    dy=(dados[1])
+    d= (dados[2].to_string(index=False))
+    print(d)
+    xlabel("Datas")
+    ylabel("Valores")
+
+    title("Moeda:"+m)
+    plot(dx, dy)
+    show()  
+
+
     
 dados=Filtro(m)
-dx=(dados[0])
-dy=(dados[1])
-d= (dados[2].to_string(index=False))
+GeraGrafico(dados)
 
-print(d)
 
-xlabel("Datas")
-ylabel("Valores")
 
-title("Moeda:"+m)
-plot(dx, dy)
 
-show()
 
