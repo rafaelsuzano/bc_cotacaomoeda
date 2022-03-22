@@ -1,9 +1,14 @@
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 import xml.etree.ElementTree as ET
 from zeep.exceptions import Fault
 from zeep import Client
 import sys
 from datetime import date,timedelta
 import pandas as pd
+from pylab import plot, show,title
+
+
 
 wsdl="https://www3.bcb.gov.br/sgspub/JSP/sgsgeral/FachadaWSSGS.wsdl"
 
@@ -14,7 +19,7 @@ datas =  []
 df=pd.DataFrame({'Moeda':[],'Data':[],'Valor':[]})
 
     
-for i in range(5):
+for i in range(10):
     try:
         x= dataB = date.today() - timedelta(days=i)
         data=(x.strftime("%d/%m/%Y") )
@@ -27,7 +32,7 @@ for i in range(5):
     except:
             pass
             #opcional o print para exibir a mensagem de sem cotação
-            print("Sem cotação  " + data )       
+            #print("Sem cotação  " + data )       
 
 
 
@@ -36,13 +41,25 @@ m= "Dolar (venda)"
 def Filtro(m):
     print("Moeda: "+m)
     x=df.loc[(df['Moeda']== m)]
-    selecionaColunas = x.iloc[:, [1,2]].to_string(index=False)
+    
+    d = x['Data'].tolist()
+    v = x['Valor'].tolist()
+ 
+    
+         #m = (x['Data'].to_string(index=False))
+    #v =(x['Valor'].to_string(index=False))
+    
+    
+    return d,v,x
+    
+dados=Filtro(m)
+dx=(dados[0])
+dy=(dados[1])
+d= (dados[2])
 
-    print(selecionaColunas)
+title(m)
+plot(dx, dy)
 
-#Exibe todas as cotações
-#print(df)
+show()
+print(d)
 
-#Filtro por moeda
-
-Filtro(m)
