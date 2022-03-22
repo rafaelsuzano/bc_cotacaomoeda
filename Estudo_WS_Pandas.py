@@ -17,7 +17,7 @@ client = Client(wsdl)
 datas =  []
 
 df=pd.DataFrame({'Moeda':[],'Data':[],'Valor':[]})
-
+fm= "Dolar (venda)"
     
 for i in range(10):
     try:
@@ -36,7 +36,7 @@ for i in range(10):
 
 
 
-m= "Dolar (venda)"
+
 
 def Filtro(m):
     print("Moeda: "+m)
@@ -62,7 +62,7 @@ def GeraGrafico(dados):
 
 
     
-dados=Filtro(m)
+dados=Filtro(fm)
 GeraGrafico(dados)
 
 
