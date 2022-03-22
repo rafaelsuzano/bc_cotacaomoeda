@@ -1,3 +1,5 @@
+#http://www.bosontreinamentos.com.br/programacao-em-python/como-criar-graficos-com-matplotlib-em-python/#:~:text=Gr%C3%A1ficos%20com%20matplotlib%20em%20Python%20O%20matplotlib%20%C3%A9,formatos%20e%20tamb%C3%A9m%20ambientes%20interativos%2C%20em%20in%C3%BAmeras%20plataformas.
+
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 import xml.etree.ElementTree as ET
@@ -6,7 +8,7 @@ from zeep import Client
 import sys
 from datetime import date,timedelta
 import pandas as pd
-from pylab import plot, show,title
+from pylab import plot, show,title,xlabel, ylabel
 
 
 
@@ -55,11 +57,15 @@ def Filtro(m):
 dados=Filtro(m)
 dx=(dados[0])
 dy=(dados[1])
-d= (dados[2])
+d= (dados[2].to_string(index=False))
 
-title(m)
+print(d)
+
+xlabel("Datas")
+ylabel("Valores")
+
+title("Moeda:"+m)
 plot(dx, dy)
 
 show()
-print(d)
 
