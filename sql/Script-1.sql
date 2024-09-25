@@ -16,6 +16,14 @@ dt_cotacao varchar(10)
 )
 
 
+create table moedas
+       (
+       id_moeda int,
+       moeda varchar(20),
+       operacao varchar(2)
+
+       )
+
 
 select  m.moeda_descr ,hc.valor , DATE_FORMAT(str_to_date(dt_cotacao, "%d/%m/%Y"), "%d/%m/%Y")as "DT_CTO", m.tipo from hist_cotacao hc 
 inner join moedas m on m.id_moeda = hc.id_moeda

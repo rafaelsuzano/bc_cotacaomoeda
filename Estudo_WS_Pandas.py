@@ -17,7 +17,7 @@ client = Client(wsdl)
 datas =  []
 
 df=pd.DataFrame({'Moeda':[],'Data':[],'Valor':[]})
-fm= "Dolar (venda)"
+fm= "Dolar"
     
 for i in range(10):
     try:
@@ -39,7 +39,7 @@ for i in range(10):
 
 
 def Filtro(m):
-    print("Moeda: "+m)
+    print("Moeda: ")
     x=df.loc[(df['Moeda']== m)]
     
     d = x['Data'].tolist()
@@ -56,7 +56,7 @@ def GeraGrafico(dados):
     xlabel("Datas")
     ylabel("Valores")
 
-    title("Moeda:"+m)
+    title("Moeda:")
     plot(dx, dy)
     show()  
 

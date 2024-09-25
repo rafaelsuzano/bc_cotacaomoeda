@@ -1,2 +1,7 @@
 suds-py3==1.4.1.0
 mysql-connector-python
+pymongo
+matplotlib
+numpy
+pandas
+zeep

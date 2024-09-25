@@ -11,7 +11,7 @@ def __init__(self):
 
     x = mycol.insert_one(mydict)
 
-
+    print(x)
 
 
 '''
