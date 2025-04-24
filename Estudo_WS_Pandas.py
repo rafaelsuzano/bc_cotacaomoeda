@@ -17,9 +17,9 @@ client = Client(wsdl)
 datas =  []
 
 df=pd.DataFrame({'Moeda':[],'Data':[],'Valor':[]})
-fm= "Dolar"
+fm= "Dolar (Compra) "
     
-for i in range(10):
+for i in range(1):
     try:
         x= dataB = date.today() - timedelta(days=i)
         data=(x.strftime("%d/%m/%Y") )

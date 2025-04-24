@@ -89,8 +89,8 @@ class GetDataBitCoins():
                 avg_price = str(data['avg_price'])
 
                 
-              #  t = conectar()
-               # t.inserirCripto(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
+                t = conectar()
+                t.inserirCripto(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
                 print(data_c,closing,lowest,opening,highest,volume,quantity,amount,avg_price,id_moeda)
                         
                 return url
