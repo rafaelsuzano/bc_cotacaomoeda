@@ -23,3 +23,13 @@ values
 (18, 'Dolar Australiano', 'C'),
 (19, 'Dolar Canadense', 'V'),
 (20, 'Dolar Canadense', 'C');
+
+
+INSERT INTO moedas (id_moeda, moeda) VALUES
+(100, 'BTC'),
+(200, 'ETH'),
+(300, 'BCH'),
+(400, 'XRP'),
+(700, 'USDC'),
+(800, 'LTC'),
+(900, 'CHZ');

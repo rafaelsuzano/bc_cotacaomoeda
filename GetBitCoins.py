@@ -103,3 +103,6 @@ class GetDataBitCoins():
         CallBitCoins("BTC",(ano),(mes),(dia))
         CallBitCoins("ETH",(ano),(mes),(dia))
         CallBitCoins("CHZ",(ano),(mes),(dia))
+        CallBitCoins("LTC",(ano),(mes),(dia))
+        CallBitCoins("XRP",(ano),(mes),(dia))
+        CallBitCoins("BCH",(ano),(mes),(dia))
