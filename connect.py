@@ -11,7 +11,7 @@ class conectar(object):
                 host = "localhost"
                 user = "root"
                 database = "cotacao"
-                password = ""
+                password = "12345678"
                 port =3306
                 try:
                         self.db = mysql.connector.connect(host=host,

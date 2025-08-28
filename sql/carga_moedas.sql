@@ -1,20 +1,25 @@
-insert into moedas (id_moeda,moeda,operacao) values(1, 'Dolar','V');
-insert into moedas (id_moeda,moeda,operacao) values (10813, 'Dolar','C');
-insert into moedas (id_moeda,moeda,operacao) values(21619, 'Euro','V');
-insert into moedas (id_moeda,moeda,operacao) values(21620,'Euro','C');
-insert into moedas (id_moeda,moeda,operacao) values(21621, 'Iene','V');
-insert into moedas (id_moeda,moeda,operacao) values(21622, 'Iene','C');
-insert into moedas (id_moeda,moeda,operacao) values(21623, 'Libra esterlina','V');
-insert into moedas (id_moeda,moeda,operacao) values(21624, 'Libra esterlina','C');
-insert into moedas (id_moeda,moeda,operacao) values(21625, 'Franco Suíço','V');
-insert into moedas (id_moeda,moeda,operacao) values(21626, 'Franco Suíço','C');
-insert into moedas (id_moeda,moeda,operacao) values(21627, 'Coroa Dinamarquesa','V');
-insert into moedas (id_moeda,moeda,operacao) values(21628, 'Coroa Dinamarquesa','C');
-insert into moedas (id_moeda,moeda,operacao) values(21629, 'Coroa Norueguesa','V');
-insert into moedas (id_moeda,moeda,operacao) values(21630, 'Coroa Norueguesa','C');
-insert into moedas (id_moeda,moeda,operacao) values(21631, 'Coroa Sueca','V');
-insert into moedas (id_moeda,moeda,operacao) values(21632, 'Coroa Sueca','C');
-insert into moedas (id_moeda,moeda,operacao) values(21633, 'Dolar Australiano','V');
-insert into moedas (id_moeda,moeda,operacao) values(21634, 'Dolar Australiano','C');
-insert into moedas (id_moeda,moeda,operacao) values(21635, 'Dolar Canadense','V');
-insert into moedas (id_moeda,moeda,operacao) values(21636, 'Dolar Canadense','C');
+SELECT id_moeda, moeda, operacao
+FROM cotacao.moedas;
+
+insert into moedas (id_moeda, moeda, operacao) 
+values
+(1, 'Dolar', 'V'),
+(2, 'Dolar', 'C'),
+(3, 'Euro', 'V'),
+(4, 'Euro', 'C'),
+(5, 'Iene', 'V'),
+(6, 'Iene', 'C'),
+(7, 'Libra esterlina', 'V'),
+(8, 'Libra esterlina', 'C'),
+(9, 'Franco Suíço', 'V'),
+(10, 'Franco Suíço', 'C'),
+(11, 'Coroa Dinamarquesa', 'V'),
+(12, 'Coroa Dinamarquesa', 'C'),
+(13, 'Coroa Norueguesa', 'V'),
+(14, 'Coroa Norueguesa', 'C'),
+(15, 'Coroa Sueca', 'V'),
+(16, 'Coroa Sueca', 'C'),
+(17, 'Dolar Australiano', 'V'),
+(18, 'Dolar Australiano', 'C'),
+(19, 'Dolar Canadense', 'V'),
+(20, 'Dolar Canadense', 'C');
