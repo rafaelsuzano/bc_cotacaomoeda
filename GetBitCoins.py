@@ -72,7 +72,7 @@ class GetDataBitCoins():
                 
                 print("CriptoMoeda não cadastrada !!!")    
                 return 999999
-                sys.exit
+            
             try:    
                 url = 'https://www.mercadobitcoin.net/api/'+coins+'/day-summary/'+ ano+'/'+mes+'/'+dia +'/'
                 r = requests.get(url)
