@@ -13,7 +13,7 @@ def __init__(self):
 
     print(x)
 
-dados ={}
+
 def Dados (moeda,valor,data,op):
   
     d = {'Moeda':moeda, 'Valor':valor, 'Data':data, 'Operacao':op}
