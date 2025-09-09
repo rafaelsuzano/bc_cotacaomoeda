@@ -5,7 +5,7 @@ dados=(t.retorna())
 #print(dados)
 
 
-def dict_Moeda(moeda):
+def moeda_dict(moeda):
    # D = {"Moeda":"Coroa Norueguesa", "Valor":"0.5820000", "Data":"13/05/2020", "Operacao":"V"}     
     #D = {"Moeda":(moeda) +",Valor:0.5820000," +"Data:13/05/2020,"+ "Operacao:V"}   
     #M=   {'ID:'+(moeda) +","+ "Moeda:"+ (moeda) +","+"Operacao:"+op}  
