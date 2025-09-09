@@ -30,7 +30,7 @@ for i in range(1):
             df=df.append({"Moeda":m[1],"Data":data,"Valor":(result['_value_1'])},ignore_index=True)
            
     except:
-            pass
+        
             #opcional o print para exibir a mensagem de sem cotação
             print("Sem cotação  " + data )       
 
@@ -64,6 +64,7 @@ def GeraGrafico(dados):
     
 dados=Filtro(fm)
 GeraGrafico(dados)
+
 
 
 
