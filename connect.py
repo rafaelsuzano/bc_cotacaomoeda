@@ -8,8 +8,8 @@ class conectar(object):
                 
   
         def __init__(self):
-                host = "localhost"
-                user = "root"
+                host = ""
+                user = ""
                 database = ""
                 password = ""
                 port =3306
