@@ -13,8 +13,6 @@ def __init__(self):
 
     print(x)
 
-
-'''
 dados ={}
 def Dados (moeda,valor,data,op):
   
@@ -23,4 +21,3 @@ def Dados (moeda,valor,data,op):
     print(d)
 
 Dados("M","1","30/06/2016","V")
-'''
